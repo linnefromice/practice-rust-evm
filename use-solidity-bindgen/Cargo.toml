@@ -6,4 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# futures = "0.3.5"
+secp256k1 = "0.20.3"
 solidity-bindgen = "0.1.0"
+web3 = "0.16.0"
+tokio = { version = "1.0", features = ["full"] }
