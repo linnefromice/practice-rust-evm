@@ -18,11 +18,11 @@ const OPEN_MARKET_VIEWER_IN_OP: &str = "0x136d92f1d103BA5267c85555b28787AE53Ee3C
 
 #[tokio::main]
 async fn main() {
-    // let ctx = Web3Context::new(
-    //     ETHEREUM_URL,
-    //     Address::zero(),
-    //     &SecretKey::from_slice(&[1; 32]).unwrap()
-    // ).unwrap();
+    let ctx = Web3Context::new(
+        ETHEREUM_URL,
+        Address::zero(),
+        &SecretKey::from_slice(&[1; 32]).unwrap()
+    ).unwrap();
 
     // For ERC20
     // let address = Address::from_str(DAI).unwrap();
@@ -40,7 +40,9 @@ async fn main() {
     // let _ = contract.get_market(open_market).await.unwrap();
 
     // For Aggregator
-    // let address = Address::from_str(AGGREGATOR_ETHUSD).unwrap();
+    let address = Address::from_str(AGGREGATOR_ETHUSD).unwrap();
+    let contract = chainlink::EACAggregatorProxy::new(address, &ctx);
+    println!("{:?}", contract.latest_answer().await.unwrap());
 }
 
 // fn main() {
