@@ -25,21 +25,21 @@ contract Viewer {
         return type(int256).max;
     }
 
-    function get_i256s() public pure returns (int256, int256, int256) {
+    function get_multiple_i256() public pure returns (int256, int256, int256) {
         return (
             get_i256_min(),
             0,
             get_i256_max()
         );
     }
-    function get_i256s_plus() public pure returns (int256, int256, int256) {
+    function get_multiple_i256_plus() public pure returns (int256, int256, int256) {
         return (
             1,
             get_i256_max() / 2,
             get_i256_max() - 1
         );
     }
-    function get_i256s_minus() public pure returns (int256, int256, int256) {
+    function get_multiple_i256_minus() public pure returns (int256, int256, int256) {
         return (
             -1,
             get_i256_min() / 2,

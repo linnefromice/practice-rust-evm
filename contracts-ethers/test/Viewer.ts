@@ -46,17 +46,17 @@ describe("Viewer", function () {
     it(".get_i256s", async () => {
       const { contract } = await loadFixture(deploy);
 
-      expect(await contract.get_i256s()).to.deep.equal([
+      expect(await contract.get_multiple_i256()).to.deep.equal([
         MIN_I256,
         0n,
         MAX_I256,
       ]);
-      expect(await contract.get_i256s_plus()).to.deep.equal([
+      expect(await contract.get_multiple_i256_plus()).to.deep.equal([
         1n,
         MAX_I256 / 2n,
         MAX_I256 - 1n,
       ]);
-      expect(await contract.get_i256s_minus()).to.deep.equal([
+      expect(await contract.get_multiple_i256_minus()).to.deep.equal([
         -1n,
         MIN_I256 / 2n,
         MIN_I256 + 1n,

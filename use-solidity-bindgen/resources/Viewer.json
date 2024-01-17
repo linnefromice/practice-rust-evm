@@ -84,7 +84,7 @@
   },
   {
     "inputs": [],
-    "name": "get_i256s",
+    "name": "get_multiple_i256",
     "outputs": [
       {
         "internalType": "int256",
@@ -107,7 +107,7 @@
   },
   {
     "inputs": [],
-    "name": "get_i256s_minus",
+    "name": "get_multiple_i256_minus",
     "outputs": [
       {
         "internalType": "int256",
@@ -130,7 +130,7 @@
   },
   {
     "inputs": [],
-    "name": "get_i256s_plus",
+    "name": "get_multiple_i256_plus",
     "outputs": [
       {
         "internalType": "int256",

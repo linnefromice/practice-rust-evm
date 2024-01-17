@@ -53,9 +53,9 @@ async fn main() {
     println!("{:?}", contract.version().await.unwrap());
     println!("{:?}", contract.get_i_256_min().await.unwrap());
     println!("{:?}", contract.get_i_256_max().await.unwrap());
-    println!("{:?}", contract.get_i_25_6s().await.unwrap());
-    println!("{:?}", contract.get_i_25_6s_plus().await.unwrap());
-    println!("{:?}", contract.get_i_25_6s_minus().await.unwrap());
+    println!("{:?}", contract.get_multiple_i_256().await.unwrap());
+    println!("{:?}", contract.get_multiple_i_256_plus().await.unwrap());
+    println!("{:?}", contract.get_multiple_i_256_minus().await.unwrap());
 }
 
 // fn main() {
