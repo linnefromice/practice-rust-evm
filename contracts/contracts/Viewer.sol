@@ -8,6 +8,9 @@ contract Viewer {
     function name() public pure returns (string memory) {
         return "Viewer";
     }
+    function version() public pure returns (string memory) {
+        return "0.0.1";
+    }
     
     function get_u256_min() public pure returns (uint256) {
         return type(uint256).min;
