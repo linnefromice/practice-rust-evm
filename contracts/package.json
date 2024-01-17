@@ -3,5 +3,8 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
     "hardhat": "^2.19.4"
+  },
+  "scripts": {
+    "test": "hardhat test"
   }
 }
