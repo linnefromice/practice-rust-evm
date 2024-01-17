@@ -8,9 +8,11 @@ use web3::ethabi::Address;
 // mod uniswap;
 // mod lyra;
 mod chainlink;
+mod local;
 
 const ETHEREUM_URL: &str = "https://eth.llamarpc.com";
 const OPTIMISM_URL: &str = "https://optimism-mainnet.public.blastapi.io";
+const HARDHAT_URL: &str = "http://localhost:8545";
 
 const DAI: &str = "0x6b175474e89094c44da98b954eedeac495271d0f";
 const AGGREGATOR_ETHUSD: &str = "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419";
@@ -19,7 +21,7 @@ const OPEN_MARKET_VIEWER_IN_OP: &str = "0x136d92f1d103BA5267c85555b28787AE53Ee3C
 #[tokio::main]
 async fn main() {
     let ctx = Web3Context::new(
-        ETHEREUM_URL,
+        HARDHAT_URL,
         Address::zero(),
         &SecretKey::from_slice(&[1; 32]).unwrap()
     ).unwrap();
@@ -40,9 +42,20 @@ async fn main() {
     // let _ = contract.get_market(open_market).await.unwrap();
 
     // For Aggregator
-    let address = Address::from_str(AGGREGATOR_ETHUSD).unwrap();
-    let contract = chainlink::EACAggregatorProxy::new(address, &ctx);
-    println!("{:?}", contract.latest_answer().await.unwrap());
+    // let address = Address::from_str(AGGREGATOR_ETHUSD).unwrap();
+    // let contract = chainlink::EACAggregatorProxy::new(address, &ctx);
+    // println!("{:?}", contract.latest_answer().await.unwrap());
+
+    // For Viewer
+    let address = Address::from_str("0x5fbdb2315678afecb367f032d93f642f64180aa3").unwrap();
+    let contract = local::Viewer::new(address, &ctx);
+    println!("{:?}", contract.name().await.unwrap());
+    println!("{:?}", contract.version().await.unwrap());
+    println!("{:?}", contract.get_i_256_min().await.unwrap());
+    println!("{:?}", contract.get_i_256_max().await.unwrap());
+    println!("{:?}", contract.get_i_25_6s().await.unwrap());
+    println!("{:?}", contract.get_i_25_6s_plus().await.unwrap());
+    println!("{:?}", contract.get_i_25_6s_minus().await.unwrap());
 }
 
 // fn main() {
