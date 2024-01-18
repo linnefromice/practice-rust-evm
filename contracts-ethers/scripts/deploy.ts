@@ -1,6 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
+  console.log(`Deploying Viewer contract...`)
   const contract = await ethers.deployContract("Viewer", []);
   await contract.waitForDeployment();
 

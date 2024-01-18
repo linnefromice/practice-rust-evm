@@ -4,7 +4,9 @@ async function main() {
   console.log(`Call Viewer contract...`)
   const { ethers } = hre;
   
-  const contract = await ethers.getContractAt("Viewer", "0x5FbDB2315678afecb367f032d93F642f64180aa3");
+  // localhost: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+  // mumbai: 0x998b6bCBaB1C25D47c68990349670b2AfA24015E
+  const contract = await ethers.getContractAt("Viewer", "0x998b6bCBaB1C25D47c68990349670b2AfA24015E");
   console.log(`contract address: ${await contract.getAddress()}`)
   console.log(`name: ${await contract.name()}`)
   console.log(`version: ${await contract.version()}`)
